@@ -8,6 +8,11 @@
 <div id="products" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
   <% @products.each do |product| %>
     <div class="bg-white rounded-lg shadow p-6 flex flex-col items-center hover:shadow-lg transition">
+      <% if product.featured_image.attached? %>
+        <%= link_to image_tag(product.featured_image.variant(resize_to_limit: [200, 200]), class: "rounded mb-3 max-h-32 object-contain shadow"), product %>
+      <% else %>
+        <div class="w-32 h-32 flex items-center justify-center bg-gray-100 rounded mb-3 text-gray-400">No Image</div>
+      <% end %>
       <%= link_to product.name, product, class: "text-xl font-semibold text-blue-700 hover:underline mb-2" %>
       <!-- Add more product details here if desired -->
     </div>
