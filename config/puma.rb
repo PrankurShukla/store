@@ -1,4 +1,6 @@
-# This configuration file will be evaluated by Puma. The top-level methods that
+prankurshukla@prankurshukla-IdeaPad-5-Pro-14ACN6:~/Desktop/learnruby/store$ bin/rails solid_queue:install:migrations
+Unrecognized command "solid_queue:install:migrations" (Rails::Command::UnrecognizedCommandError)
+Did you mean?  solid_queue:install# This configuration file will be evaluated by Puma. The top-level methods that
 # are invoked here are part of Puma's configuration DSL. For more information
 # about methods provided by the DSL, see https://puma.io/puma/Puma/DSL.html.
 #
