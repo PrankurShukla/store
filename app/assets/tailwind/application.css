@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+/* Hide Trix toolbar for product description */
+trix-toolbar {
+	@apply hidden;
+}
