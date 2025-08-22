@@ -2,5 +2,5 @@
 
 /* Hide Trix toolbar for product description */
 trix-toolbar {
-	@apply hidden;
+	display: none;
 }
