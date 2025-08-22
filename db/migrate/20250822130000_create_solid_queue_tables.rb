@@ -100,3 +100,4 @@ class CreateSolidQueueTables < ActiveRecord::Migration[7.1]
     add_index :solid_queue_recurring_tasks, :key, unique: true
     add_index :solid_queue_recurring_tasks, :static
   end
+end
