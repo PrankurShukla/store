@@ -29,6 +29,12 @@ production:
   encoding: unicode
   url: <%= ENV["DATABASE_URL"] %>
 
+  cable:
+    <<: *default
+    adapter: postgresql
+    encoding: unicode
+    url: <%= ENV["DATABASE_URL"] %>
+
   primary:
     <<: *default
     database: storage/production.sqlite3
