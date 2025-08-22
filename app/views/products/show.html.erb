@@ -1,20 +1,28 @@
-<p><%= link_to "Back", products_path %></p>
 
-<section class="product">
-  <%= image_tag @product.featured_image if @product.featured_image.attached? %>
+<div class="mb-4">
+  <%= link_to "← Back to Products", products_path, class: "text-blue-600 hover:underline" %>
+</div>
 
-  <section class="product-info">
+<div class="bg-white rounded-lg shadow p-8 max-w-2xl mx-auto">
+  <% if @product.featured_image.attached? %>
+    <div class="flex justify-center mb-6">
+      <%= image_tag @product.featured_image, class: "rounded-lg max-h-64 object-contain shadow" %>
+    </div>
+  <% end %>
+  <div class="mb-4">
     <% cache @product do %>
-      <h1><%= @product.name %></h1>
-      <%= @product.description %>
+      <h1 class="text-3xl font-bold text-gray-800 mb-2"><%= @product.name %></h1>
+      <div class="prose max-w-none text-gray-700 mb-4"><%= @product.description %></div>
     <% end %>
-
+  </div>
+  <div class="mb-4">
     <%= render "inventory", product: @product %>
-
+  </div>
+  <div class="flex space-x-4">
     <% if authenticated? %>
-      <%= link_to "Edit", edit_product_path(@product) %>
-      <%= button_to "Delete", @product, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+      <%= link_to "Edit", edit_product_path(@product), class: "bg-yellow-500 text-white px-4 py-2 rounded shadow hover:bg-yellow-600" %>
+      <%= button_to "Delete", @product, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "bg-red-600 text-white px-4 py-2 rounded shadow hover:bg-red-700" %>
     <% end %>
-  </section>
-</section>
+  </div>
+</div>
 

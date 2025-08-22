@@ -1,11 +1,10 @@
 <% if product.inventory_count? %>
-  <p><%= product.inventory_count %> in stock</p>
+  <p class="text-green-700 font-semibold mb-2"><%= product.inventory_count %> in stock</p>
 <% else %>
-  <p>Out of stock</p>
-  <p>Email me when available.</p>
-
-  <%= form_with model: [product, Subscriber.new] do |form| %>
-    <%= form.email_field :email, placeholder: "you@example.com", required: true %>
-    <%= form.submit "Submit" %>
+  <p class="text-red-700 font-semibold mb-2">Out of stock</p>
+  <p class="mb-2">Email me when available.</p>
+  <%= form_with model: [product, Subscriber.new], html: { class: "flex space-x-2" } do |form| %>
+    <%= form.email_field :email, placeholder: "you@example.com", required: true, class: "border border-gray-300 rounded px-3 py-2" %>
+    <%= form.submit "Submit", class: "bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700" %>
   <% end %>
 <% end %>

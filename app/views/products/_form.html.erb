@@ -1,24 +1,23 @@
-<%= form_with model: product do |form| %>
+<%= form_with model: product, html: { class: "space-y-6" } do |form| %>
   <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :name, class: "block text-gray-700 font-semibold mb-1" %>
+    <%= form.text_field :name, class: "w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.rich_text_area :description %>
+    <%= form.label :description, class: "block text-gray-700 font-semibold mb-1" %>
+    <%= form.rich_text_area :description, class: "w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" %>
   </div>
   <div>
-    <%= form.label :featured_image, style: "display: block" %>
-    <%= form.file_field :featured_image, accept: "image/*" %>
+    <%= form.label :featured_image, class: "block text-gray-700 font-semibold mb-1" %>
+    <%= form.file_field :featured_image, accept: "image/*", class: "w-full border border-gray-300 rounded px-3 py-2" %>
   </div>
   <div>
-    <%= form.label :inventory_count, style: "display: block" %>
-    <%= form.number_field :inventory_count %>
+    <%= form.label :inventory_count, class: "block text-gray-700 font-semibold mb-1" %>
+    <%= form.number_field :inventory_count, class: "w-full border border-gray-300 rounded px-3 py-2" %>
   </div>
 
-
   <div>
-    <%= form.submit %>
+    <%= form.submit nil, class: "bg-blue-600 text-white px-6 py-2 rounded shadow hover:bg-blue-700" %>
   </div>
 <% end %>
