@@ -18,23 +18,34 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-  <div class="notice"><%= notice %></div>
-
-    <nav>
-      <%= link_to "Home", root_path %>
-      <%= link_to "Login", new_session_path unless authenticated? %>
-
-      <%= button_to "Log out", session_path, method: :delete if authenticated? %>
-    </nav>
-
-    <main>
-      <%= yield %>
-    </main>
-
+  <body class="bg-gray-50 min-h-screen font-sans">
+    <header class="bg-white shadow">
+      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="text-2xl font-bold text-blue-700">
+          <%= link_to (content_for(:title) || "Store"), root_path, class: "hover:text-blue-900" %>
+        </div>
+        <nav class="space-x-4">
+          <%= link_to "Home", root_path, class: "text-gray-700 hover:text-blue-700" %>
+          <% unless authenticated? %>
+            <%= link_to "Login", new_session_path, class: "text-gray-700 hover:text-blue-700" %>
+          <% end %>
+          <% if authenticated? %>
+            <%= button_to "Log out", session_path, method: :delete, class: "bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700" %>
+          <% end %>
+        </nav>
+      </div>
+    </header>
+    <div class="container mx-auto px-4 py-6">
+      <% if notice %>
+        <div class="mb-4 p-3 bg-green-100 text-green-800 rounded shadow"><%= notice %></div>
+      <% end %>
+      <main>
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>
