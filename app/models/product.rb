@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   include Product::Notifications
 
 
-  has_one_attached :featured_image
+  has_many_attached :featured_image
   has_rich_text :description
 
   validates :name, presence: true
